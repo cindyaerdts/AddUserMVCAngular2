@@ -14,7 +14,8 @@ namespace WebApplication1.Controllers
         {
             var rand = new Random();
             await Task.Delay(rand.Next(0, 50)); // Emulate tiny latency...
-            return new JsonResult(new { numbers = Enumerable.Range(1, 10).Select(i => i * rand.NextDouble()).ToArray() });
+            var list = new JsonResult(new { numbers = Enumerable.Range(1, 10).Select(i => i * rand.NextDouble()).ToArray() });
+            return list;/*new JsonResult(new { numbers = Enumerable.Range(1, 10).Select(i => i * rand.NextDouble()).ToArray() });*/
         }
     }
 }

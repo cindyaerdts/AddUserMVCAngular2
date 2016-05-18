@@ -7,20 +7,24 @@
     <form class="form-horizontal" role="form">
         <div class="form-group">
             <label class="control-label col-sm-2" for="pwd">User Account:</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="pwd" placeholder="Enter user account name">
+            <div class="col-sm-8">
+                <input type="text" [(ngmodel)]="model.name"class="form-control" id="userName" placeholder="Enter user account name" (click)="getUser(userName)">
+                {{model.name}}
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-default">Search</button>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="pwd">Firstname:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="pwd" placeholder="Enter first name">
+                <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="pwd">Lastname:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="pwd" placeholder="Enter Lastname">
+                <input type="text" class="form-control" id="lastName" placeholder="Enter Lastname">
             </div>
         </div>
         <div class="form-group">

@@ -9,7 +9,7 @@ System.register(["rxjs/Rx", "angular2/http", "angular2/core"], function(exports_
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var http_1, core_1;
-    var ApiService;
+    var UserService;
     return {
         setters:[
             function (_1) {},
@@ -20,21 +20,24 @@ System.register(["rxjs/Rx", "angular2/http", "angular2/core"], function(exports_
                 core_1 = core_1_1;
             }],
         execute: function() {
-            ApiService = (function () {
-                function ApiService(http) {
+            UserService = (function () {
+                function UserService(http) {
                     this.http = http;
                 }
-                ApiService.prototype.get = function (onNext) {
-                    this.http.get("api/random").map(function (response) { return response.json(); }).subscribe(onNext), function (response) { return response.headers(); };
+                //get(onNext: (json: any) => void) {
+                //    this.http.get("user").map(response => response.json()).subscribe(onNext);
+                UserService.prototype.getUser = function (userName) {
+                    var getUserUrl = "user" + '/' + userName;
+                    this.http.get(getUserUrl);
                 };
-                ApiService = __decorate([
+                UserService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
-                ], ApiService);
-                return ApiService;
+                ], UserService);
+                return UserService;
             })();
-            exports_1("ApiService", ApiService);
+            exports_1("UserService", UserService);
         }
     }
 });
-//# sourceMappingURL=api.service.js.map
+//# sourceMappingURL=user.service.js.map
